@@ -1,5 +1,7 @@
 # Tour360
 
+[![CI](https://github.com/kishanraj427/Tour360/actions/workflows/ci.yml/badge.svg)](https://github.com/kishanraj427/Tour360/actions/workflows/ci.yml)
+
 A Flutter application for exploring 360-degree panoramic views of famous landmarks and tourist destinations worldwide. Search for any location and experience it through immersive panoramic imagery powered by Google Custom Search API.
 
 ## Features
