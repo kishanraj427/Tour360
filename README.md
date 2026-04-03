@@ -102,6 +102,24 @@ The app follows a simple layered architecture with GetX navigation. See the [doc
 - [API Integration](docs/api-integration.md) - Google Custom Search API details
 - [Android Upgrade Guide](docs/android-upgrade-guide.md) - Steps to upgrade Android/Java/Gradle in old Flutter projects
 
+## Testing
+
+Run the full test suite:
+
+```bash
+flutter test
+```
+
+| Category | File | Tests |
+|----------|------|-------|
+| Unit | `test/utils/api_config_test.dart` | Query sanitization, URL building, env vars |
+| Unit | `test/models/place_test.dart` | Place model construction and mutation |
+| Unit | `test/utils/store_test.dart` | Curated data integrity and uniqueness |
+| Unit | `test/utils/strings_palatte_test.dart` | String and color constants |
+| Widget | `test/screens/homescreen_test.dart` | Welcome text, sections, styling |
+| Widget | `test/screens/search_list_screen_test.dart` | App bar, search term, colors |
+| Widget | `test/screens/view_screen_test.dart` | Location name, back button, scaffold |
+
 ## Dependencies
 
 | Package | Version | Purpose |
