@@ -32,6 +32,7 @@ class MockHttpClient extends Fake implements HttpClient {
 }
 
 class MockHttpClientRequest extends Fake implements HttpClientRequest {
+  @override
   final Uri uri;
   MockHttpClientRequest(this.uri);
 
