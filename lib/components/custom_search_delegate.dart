@@ -57,7 +57,7 @@ class CustomSearchDelegate extends SearchDelegate {
           child: ListTile(
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-            tileColor: Palatte.green.withOpacity(0.2),
+            tileColor: Palatte.green.withValues(alpha: 0.2),
             title: Text(
               result,
               style: GoogleFonts.ubuntu(),
@@ -90,7 +90,7 @@ class CustomSearchDelegate extends SearchDelegate {
           child: ListTile(
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-            tileColor: Palatte.green.withOpacity(0.2),
+            tileColor: Palatte.green.withValues(alpha: 0.2),
             title: Text(
               result,
               style: GoogleFonts.ubuntu(),

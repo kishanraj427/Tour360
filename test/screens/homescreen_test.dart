@@ -17,8 +17,8 @@ GOOGLE_CX=test_cx
   });
 
   Widget createTestApp() {
-    return GetMaterialApp(
-      home: const HomeScreen(),
+    return const GetMaterialApp(
+      home: HomeScreen(),
     );
   }
 
