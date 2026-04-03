@@ -20,7 +20,7 @@ A Flutter application for exploring 360-degree panoramic views of famous landmar
 
 | Component | Technology |
 |-----------|------------|
-| Framework | Flutter (Dart 3.4.1+) |
+| Framework | Flutter 3.41.0 (Dart 3.11.0) |
 | State Management | StatefulWidget + GetX navigation |
 | HTTP Client | Dio |
 | 360 Viewer | panorama_viewer |
@@ -32,8 +32,9 @@ A Flutter application for exploring 360-degree panoramic views of famous landmar
 
 ### Prerequisites
 
-- Flutter SDK `>=3.4.1`
-- Android SDK 34+ / Xcode (for iOS)
+- Flutter SDK `>=3.41.0`
+- Java 17 (`openjdk-17-jdk`)
+- Android SDK 36+ / Xcode (for iOS)
 - A Google Custom Search API key
 
 ### Installation
@@ -45,6 +46,9 @@ cd tour360
 
 # Install dependencies
 flutter pub get
+
+# Set Java 17 (required for Android builds)
+export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
 
 # Run the app
 flutter run
@@ -82,13 +86,14 @@ The app follows a simple layered architecture with GetX navigation. See the [doc
 - [Architecture Overview](docs/architecture.md) - High-level system design and patterns
 - [Navigation & Data Flow](docs/navigation-and-data-flow.md) - Screen routing and data lifecycle
 - [API Integration](docs/api-integration.md) - Google Custom Search API details
+- [Android Upgrade Guide](docs/android-upgrade-guide.md) - Steps to upgrade Android/Java/Gradle in old Flutter projects
 
 ## Dependencies
 
 | Package | Version | Purpose |
 |---------|---------|---------|
 | [dio](https://pub.dev/packages/dio) | ^5.7.0 | HTTP client for API calls |
-| [panorama_viewer](https://pub.dev/packages/panorama_viewer) | ^1.0.5 | 360-degree panoramic image viewer |
+| [panorama_viewer](https://pub.dev/packages/panorama_viewer) | ^2.0.7 | 360-degree panoramic image viewer |
 | [lottie](https://pub.dev/packages/lottie) | ^3.1.2 | Lottie animation playback |
 | [cached_network_image](https://pub.dev/packages/cached_network_image) | ^3.4.1 | Optimized network image caching |
 | [google_fonts](https://pub.dev/packages/google_fonts) | ^6.2.1 | Google Fonts typography |
