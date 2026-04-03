@@ -103,6 +103,7 @@ graph TD
 
 | Utility | Purpose |
 |---------|---------|
+| **api_config.dart** | API key access via `flutter_dotenv`, URL building, and input sanitization. |
 | **palatte.dart** | Centralized color constants (background, primary green, white). |
 | **store.dart** | Curated data: most-searched places, top places, and 408 search suggestion strings. |
 | **strings.dart** | UI string constants for labels and messages. |

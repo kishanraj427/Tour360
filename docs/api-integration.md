@@ -166,11 +166,40 @@ graph TD
     style D fill:#90EE90
 ```
 
-## Security Considerations
+## Security
 
-| Concern | Current State | Recommendation |
-|---------|--------------|----------------|
-| API Key exposure | Hardcoded in source | Move to environment variables or backend proxy |
-| Search Engine ID | Hardcoded in source | Move to environment variables or backend proxy |
-| HTTPS | All API calls use HTTPS | Maintain HTTPS-only communication |
-| Input sanitization | Location name passed directly to query | Consider sanitizing user input before API calls |
+API keys are managed via environment variables using `flutter_dotenv`. The `.env` file is git-ignored.
+
+```mermaid
+graph LR
+    ENV[".env file<br/>(git-ignored)"] -->|"loaded at startup"| DotEnv["flutter_dotenv"]
+    DotEnv --> ApiConfig["ApiConfig<br/>(lib/utils/api_config.dart)"]
+    ApiConfig -->|"builds sanitized URL"| Dio["Dio HTTP Client"]
+    EXAMPLE[".env.example<br/>(committed)"] -.->|"template for"| ENV
+```
+
+### Setup
+
+```bash
+cp .env.example .env
+# Then edit .env with your actual keys
+```
+
+### How it works
+
+| Layer | File | Responsibility |
+|-------|------|---------------|
+| Storage | `.env` | Stores `GOOGLE_API_KEY` and `GOOGLE_CX` (git-ignored) |
+| Template | `.env.example` | Committed template for other developers |
+| Loading | `main.dart` | Calls `dotenv.load()` at app startup |
+| Access | `lib/utils/api_config.dart` | Reads env vars, builds URLs, sanitizes input |
+
+### Security measures
+
+| Concern | Status |
+|---------|--------|
+| API Key exposure | Stored in `.env`, git-ignored, loaded via `flutter_dotenv` |
+| Search Engine ID | Stored in `.env`, git-ignored, loaded via `flutter_dotenv` |
+| HTTPS | All API calls use HTTPS |
+| Input sanitization | `ApiConfig._sanitizeQuery()` strips special characters before API calls |
+| URL encoding | Query params encoded via `Uri.encodeComponent()` |

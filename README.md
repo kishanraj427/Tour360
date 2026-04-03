@@ -56,7 +56,20 @@ flutter run
 
 ### Configuration
 
-The app requires a Google Custom Search API key. Update the API key in the search screen configuration before building for production.
+The app uses environment variables for API keys. Create a `.env` file in the project root:
+
+```bash
+cp .env.example .env
+```
+
+Then edit `.env` with your credentials:
+
+```
+GOOGLE_API_KEY=your_google_api_key_here
+GOOGLE_CX=your_search_engine_id_here
+```
+
+> **Note:** The `.env` file is git-ignored and will not be committed to version control.
 
 ## Project Structure
 
@@ -74,6 +87,7 @@ lib/
 │   ├── search_list_screen.dart      # Search results with API integration
 │   └── view_screen.dart             # 360-degree panoramic viewer
 └── utils/
+    ├── api_config.dart              # API configuration & query sanitization
     ├── palatte.dart                 # Color constants
     ├── store.dart                   # Curated place data & search suggestions
     └── strings.dart                 # UI string constants
@@ -98,6 +112,7 @@ The app follows a simple layered architecture with GetX navigation. See the [doc
 | [cached_network_image](https://pub.dev/packages/cached_network_image) | ^3.4.1 | Optimized network image caching |
 | [google_fonts](https://pub.dev/packages/google_fonts) | ^6.2.1 | Google Fonts typography |
 | [get](https://pub.dev/packages/get) | ^4.6.6 | Lightweight navigation & utilities |
+| [flutter_dotenv](https://pub.dev/packages/flutter_dotenv) | ^5.2.1 | Environment variable management |
 
 ## License
 
