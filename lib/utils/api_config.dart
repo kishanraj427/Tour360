@@ -5,7 +5,7 @@ class ApiConfig {
   static String get cx => dotenv.env['GOOGLE_CX'] ?? '';
 
   static String buildSearchUrl(String query) {
-    final sanitizedQuery = _sanitizeQuery(query);
+    final sanitizedQuery = sanitizeQuery(query);
     return 'https://customsearch.googleapis.com/customsearch/v1'
         '?key=$apiKey'
         '&cx=$cx'
@@ -14,7 +14,7 @@ class ApiConfig {
         '&q=${Uri.encodeComponent('$sanitizedQuery panoramic image')}';
   }
 
-  static String _sanitizeQuery(String input) {
+  static String sanitizeQuery(String input) {
     return input.replaceAll(RegExp(r'[^\w\s\-.,]'), '').trim();
   }
 }
