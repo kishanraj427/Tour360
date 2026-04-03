@@ -41,7 +41,7 @@ A Flutter application for exploring 360-degree panoramic views of famous landmar
 
 ```bash
 # Clone the repository
-git clone git@github.com:kishanraj427/tour360.git
+git clone git@github.com:kishanraj427/Tour360.git
 cd tour360
 
 # Install dependencies
